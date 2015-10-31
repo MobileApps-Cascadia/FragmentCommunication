@@ -55,9 +55,7 @@ public class MainActivity extends Activity
 
         FragmentTransaction transaction =
                 getFragmentManager().beginTransaction();
-        //transaction.replace(SimpleFragment.newInstance(id), null);
-        transaction.replace(R.id.fragment_container, new SimpleFragment());
-        //transaction.replace(R.id.fragment_container, SimpleFragment.newInstance(id));
+        transaction.replace(R.id.fragment_container, SimpleFragment.newInstance(id));
         transaction.addToBackStack(null);
         transaction.commit();
 
