@@ -18,20 +18,8 @@ import edu.cascadia.brianb.fragmentcommunication.dummy.DummyContent;
  */
 public class ItemFragment extends ListFragment {
 
+    // ******** Listener object *********************
     private OnFragmentInteractionListener mListener;
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        public void onFragmentInteraction(String id);
-    }
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -44,7 +32,6 @@ public class ItemFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         // TODO: Change Adapter to display your content
         setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS));
@@ -54,7 +41,11 @@ public class ItemFragment extends ListFragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+
+        // This makes sure that the MainActivity has implemented
+        // the callback interface. If not, it throws an exception
         try {
+            // casting activity to Listener object
             mListener = (OnFragmentInteractionListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
@@ -75,8 +66,29 @@ public class ItemFragment extends ListFragment {
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
+            // ******* When the user clicks on a list item this method is called.
+            // *******  The fragment uses the callback interface to deliver
+            //            the event to the parent activity. ****************
             mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
         }
+    }
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p/>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
+
+    // ****** First define an interface in ItemFragement class *********
+    // ******* Then MainActivity must implement this interface *********
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        public void onFragmentInteraction(String id);
     }
 
 }
