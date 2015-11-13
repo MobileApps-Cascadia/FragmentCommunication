@@ -1,6 +1,7 @@
 package edu.cascadia.brianb.fragmentcommunication;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +20,7 @@ public class MainActivity extends Activity
         FragmentManager fm = getFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fm.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, new ItemFragment())
+        fragmentTransaction.replace(R.id.fragment_container, new ItemFragment());
         fragmentTransaction.commit();
     }
 
@@ -28,10 +29,15 @@ public class MainActivity extends Activity
     @Override
       public void onFragmentInteraction(String id) {
 
-              getFragmentManager().beginTransaction()
-                               .replace(R.id.fragment_container, SimpleFragment.newInstance(id))
-                               .addToBackStack(null)
-                               .commit();
+        Fragment fr = SimpleFragment.newInstance(id);
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fr);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+
+
            }
 
 
