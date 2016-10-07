@@ -1,22 +1,24 @@
 package edu.cascadia.brianb.fragmentcommunication;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import edu.cascadia.brianb.fragmentcommunication.dummy.NewsContent;
 
 
 public class SimpleFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_HEADLINE = "headline";
+    private static final String ARG_ARTICLE = "article";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
+    private String headline;
+    private String article;
 
     private ItemFragment.OnFragmentInteractionListener mListener;
 
@@ -24,13 +26,14 @@ public class SimpleFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
+     * @param news NewsItem
      * @return A new instance of fragment SimpleFragment.
      */
-    public static SimpleFragment newInstance(String param1) {
+    public static SimpleFragment newInstance(NewsContent.NewsItem news) {
         SimpleFragment fragment = new SimpleFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_HEADLINE, news.headline);
+        args.putString(ARG_ARTICLE, news.article);
         fragment.setArguments(args);
         return fragment;
     }
@@ -43,7 +46,8 @@ public class SimpleFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
+            headline = getArguments().getString(ARG_HEADLINE);
+            article = getArguments().getString(ARG_ARTICLE);
         }
     }
 
@@ -54,6 +58,8 @@ public class SimpleFragment extends Fragment {
         View myView =  inflater.inflate(R.layout.fragment_simple, container, false);
 
         //TODO: Set the resultsTextView to display the string with the position number passed by the bundle
+        TextView textView = (TextView) myView.findViewById(R.id.resultTextView);
+        textView.setText(headline + " - " + article);
 
         // return the final view
         return myView;
