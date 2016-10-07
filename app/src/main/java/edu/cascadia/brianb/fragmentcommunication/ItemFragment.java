@@ -40,6 +40,8 @@ public class ItemFragment extends ListFragment {
     public ItemFragment() {
     }
 
+    public static ItemFragment newInstance(){ return new ItemFragment();}
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
