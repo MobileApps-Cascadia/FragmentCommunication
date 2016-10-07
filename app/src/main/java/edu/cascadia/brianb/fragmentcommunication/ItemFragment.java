@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import edu.cascadia.brianb.fragmentcommunication.dummy.DummyContent;
+import java.util.ArrayList;
+import java.util.List;
+
+import edu.cascadia.brianb.fragmentcommunication.dummy.NewsContent;
 
 /**
  * A fragment representing a list of Items.
@@ -30,7 +33,7 @@ public class ItemFragment extends ListFragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        public void onFragmentInteraction(String id);
+        public void onFragmentInteraction(NewsContent.NewsItem item);
     }
 
     /**
@@ -44,10 +47,13 @@ public class ItemFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        List<String> headlines = new ArrayList<String>();
 
-        // TODO: Change Adapter to display your content
-        setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS));
+        for (NewsContent.NewsItem item : NewsContent.ITEMS) {
+            headlines.add(item.headline);
+        }
+        setListAdapter(new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, headlines));
     }
 
 
@@ -75,7 +81,7 @@ public class ItemFragment extends ListFragment {
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
+            mListener.onFragmentInteraction(NewsContent.ITEMS.get(position));
         }
     }
 
