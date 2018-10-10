@@ -24,12 +24,12 @@ public class DummyContent {
 
     static {
         // Add 3 sample items.
-        addItem(new DummyItem("1", "Item 1"));
-        addItem(new DummyItem("2", "Item 2"));
-        addItem(new DummyItem("3", "Item 3"));
-        addItem(new DummyItem("4", "Item 4"));
-        addItem(new DummyItem("5", "Item 5"));
-        addItem(new DummyItem("6", "Item 6"));
+        addItem(new DummyItem("1", "Apples"));
+        addItem(new DummyItem("2", "Oranges"));
+        addItem(new DummyItem("3", "Bananas"));
+        addItem(new DummyItem("4", "Pineapples"));
+        addItem(new DummyItem("5", "Blueberries"));
+        addItem(new DummyItem("6", "Lemons"));
     }
 
     private static void addItem(DummyItem item) {
