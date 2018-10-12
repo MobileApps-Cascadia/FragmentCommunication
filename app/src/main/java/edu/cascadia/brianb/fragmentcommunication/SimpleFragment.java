@@ -7,7 +7,9 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import org.w3c.dom.Text;
 
 
 public class SimpleFragment extends Fragment {
@@ -51,8 +53,10 @@ public class SimpleFragment extends Fragment {
         // Inflate the layout for this fragment
         View myView =  inflater.inflate(R.layout.fragment_simple, container, false);
 
-        //TODO: Set the resultsTextView to display the string with the position number passed by the bundle and stored in param1
+        //Set the resultsTextView to display the string with the position number passed by the bundle and stored in param1
         //(HINT: myView has a findViewById() method that can retrieve a copy of the TextView
+        TextView mytextview =  (TextView) myView.findViewById(R.id.resultTextView);
+        mytextview.setText(mParam1);
 
         // returns the final view
         return myView;
