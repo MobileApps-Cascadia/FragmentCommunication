@@ -53,7 +53,7 @@ public class SimpleFragment extends Fragment {
         // Inflate the layout for this fragment
         View myView =  inflater.inflate(R.layout.fragment_simple, container, false);
 
-        //TODO: Set the resultsTextView to display the string with the position number passed by the bundle and stored in param1
+        //Set the resultsTextView to display the string with the position number passed by the bundle and stored in param1
         //(HINT: myView has a findViewById() method that can retrieve a copy of the TextView
         TextView resultsTextView = (TextView) myView.findViewById(R.id.resultTextView);
         resultsTextView.setText(mParam1);
