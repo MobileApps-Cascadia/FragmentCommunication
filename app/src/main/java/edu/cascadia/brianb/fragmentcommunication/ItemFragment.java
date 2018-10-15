@@ -16,7 +16,7 @@ import edu.cascadia.brianb.fragmentcommunication.dummy.DummyContent;
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
-public class ItemFragment extends ListFragment {
+public class ItemFragment extends ListFragment  {
 
     private OnFragmentInteractionListener mListener;
     /**
