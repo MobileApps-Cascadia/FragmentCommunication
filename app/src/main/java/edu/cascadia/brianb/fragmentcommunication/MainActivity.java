@@ -26,12 +26,13 @@ class MainActivity extends AppCompatActivity  implements ItemFragment.OnFragment
     //TODO: Implement the method 'onFragmentInteraction' to creates a new SimpleFragment
     //      using its FragmentFactory method 'newInstance'
 
-    public void OnFragmentInteractionListener(String ID){
+    public void onFragmentInteraction(String ID){
         fragmentManager.beginTransaction()
                 .add(R.id.fragment_container, SimpleFragment.newInstance(ID), "frag2")
                 .commit();
 
     }
+
 
 
 }
