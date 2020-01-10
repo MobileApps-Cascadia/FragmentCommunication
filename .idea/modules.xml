@@ -3,9 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FragmentCommunication.iml" filepath="$PROJECT_DIR$/FragmentCommunication.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/FragmentCommunication-app.iml" filepath="$PROJECT_DIR$/app/FragmentCommunication-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bit-372-FragmentCommunication.iml" filepath="$PROJECT_DIR$/bit-372-FragmentCommunication.iml" />
     </modules>
   </component>
 </project>
