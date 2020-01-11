@@ -53,6 +53,7 @@ public class SimpleFragment extends Fragment {
 
         //TODO: Set the resultsTextView to display the string with the position number passed by the bundle and stored in param1
         //(HINT: myView has a findViewById() method that can retrieve a copy of the TextView
+        myView.findViewById(R.id.resultTextView);
 
         // returns the final view
         return myView;
