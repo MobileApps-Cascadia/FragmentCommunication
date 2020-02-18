@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 
 public class SimpleFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,7 +56,11 @@ public class SimpleFragment extends Fragment {
         //TODO: Set the resultsTextView to display the string with the position number passed by the bundle and stored in param1
         //(HINT: myView has a findViewById() method that can retrieve a copy of the TextView)
 
-        //myView.(TextView)findViewById(R.id.resultTextView).setText(mParam1);
+        TextView textView = (TextView) myView.findViewById(R.id.resultTextView);
+
+        textView.setText(mParam1);
+
+        //((TextView)myView.findViewById(R.id.resultTextView)).setText(mParam1);
 
         // returns the final view
         return myView;
