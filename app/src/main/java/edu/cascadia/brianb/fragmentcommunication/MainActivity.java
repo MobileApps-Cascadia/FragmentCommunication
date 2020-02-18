@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.FragmentManager;
 import android.content.ClipData;
 import android.os.Bundle;
+import android.widget.Toast;
 
 //TODO: require the Activity to implement the interface 'OnFragmentInteractionListener'
 public class MainActivity extends AppCompatActivity implements ItemFragment.OnFragmentInteractionListener{
@@ -26,8 +27,11 @@ public class MainActivity extends AppCompatActivity implements ItemFragment.OnFr
     //      using its FragmentFactory method 'newInstance'
     @Override
     public void onFragmentInteraction(String id) {
+
+        String actualIndex = Integer.toString(Integer.parseInt(id) + 1);
+
         getFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, new SimpleFragment().newInstance("simple_fragment"))
+                .replace(R.id.fragment_container, new SimpleFragment().newInstance(actualIndex))
                 .addToBackStack(null)
                 .commit();
     }

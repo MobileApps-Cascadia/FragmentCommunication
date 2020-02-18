@@ -25,8 +25,8 @@ public class DummyContent {
     static {
         // Add 3 sample items.
 
-        for(int i = 0; i < 3; i++){
-            addItem(new DummyItem(Integer.toString(i), "Really Awesome Item " + Integer.toString(i)));
+        for(int i = 0; i < 7; i++){
+            addItem(new DummyItem(Integer.toString(i), "Really Awesome Item " + Integer.toString(i + 1)));
         }
     }
 
